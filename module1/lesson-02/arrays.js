@@ -142,9 +142,9 @@ const studentTwo = {
             favoriteBooks : ['Book1','Book2']
         }
 
-        const studentsList = [studentOne, studentTwo, studentThree, studentSix, studentSeven, studentEight, studentNine, studentTen, studentEleven, studentTwelve]
-        studentsList.push(studentFour);
-        studentsList.unshift(studentFive);
+const studentsList = [studentOne, studentTwo, studentThree, studentSix, studentSeven, studentEight, studentNine, studentTen, studentEleven, studentTwelve]
+studentsList.push(studentFour);
+studentsList.unshift(studentFive);
 
         let coffeeLovers = []
 
@@ -231,3 +231,21 @@ const oddNumbers = numbers.filter(function (number) {
  
 console.log('evenNumbers',evenNumbers); 
 console.log('oddNumbers', oddNumbers)
+
+// Create an array "studentsList" made of all the students
+
+// 1. Print out every firstName inside of bootcampStudents
+// 2. Print out the name of every student who likes to drinkCoffee
+// 3. Print out everyone who is aged less than 30 years old
+function findYoungBloods(arrayOfStudents){
+    const youngBloods =[]
+    
+    for(let i = 0; i < arrayOfStudents.length; i++){
+        if(arrayOfStudents[i].age < 30){
+            youngBloods.push(arrayOfStudents[i])
+        }
+    }
+    return youngBloods;
+}
+
+console.log(findYoungBloods(studentsList))
