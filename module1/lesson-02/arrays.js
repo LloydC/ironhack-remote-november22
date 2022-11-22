@@ -42,8 +42,8 @@ const studentTwo = {
     city: "Cairo”",
     drinkCoffee: true,
     likeCats: true,
-    favouriteFoods: ["potato", "chocolate"],
-    favouriteBooks: ["book1", "book2"]
+    favoriteFoods: ["potato", "chocolate"],
+    favoriteBooks: ["book1", "book2"]
     }
 
     const studentFive = {
@@ -84,7 +84,7 @@ const studentTwo = {
         lastName: "Arles",
         age: 31,
         city: "Paris",
-        drinksCoffee: false,
+        drinkCoffee: false,
         likeCats: true,
         favoriteFoods: ['Pastas', 'Burrito bowls', 'Ramens'],
         favoriteBooks: [
@@ -135,14 +135,14 @@ const studentTwo = {
             firstName: "Avni",
             lastName: "Sharma",
             age: 36,
-            city: "Berlin",
+            city: "Berlin", // 
             drinkCoffee : false,
             likeCats : false ,
             favoriteFoods : ['Indian bread','Pasta'],
             favoriteBooks : ['Book1','Book2']
         }
 
-        const studentsList = [studentOne, studentTwo, studentThree]
+        const studentsList = [studentOne, studentTwo, studentThree, studentSix, studentSeven, studentEight, studentNine, studentTen, studentEleven, studentTwelve]
         studentsList.push(studentFour);
         studentsList.unshift(studentFive);
 
@@ -158,8 +158,76 @@ const studentTwo = {
             }
             
         }
-        console.log('coffeeLovers', coffeeLovers.length)
+        console.log('coffeeLovers', coffeeLovers)
 
-// Get the first three students of the array inside a variable 'firstGroup'
+// const arrayNames = ["Pedro", "Jake", "Joan", undefined];
+
+
+// const removedNames = arrayNames.splice(1,2);
+// console.log(removedNames);
+// console.log(arrayNames);
+
+// Get the first three students of the array coffeeLovers inside a variable 'firstGroup'
+// console.log()
+const firstGroup = coffeeLovers.slice(0, 3); // coffeeLovers.splice(0, 3)
+console.log(firstGroup)
 // Get the last three students of the array inside a variable 'secondGroup'
+const secondGroup = coffeeLovers.slice(coffeeLovers.length - 3, coffeeLovers.length)
 // Confirm using console.log that these are correct
+console.log(secondGroup)
+
+// const arrayNames = ["Pedro", "Jake", "Joan"];
+
+// arrayNames.forEach((name, index) => {
+//   console.log(`index ${index}`,name);
+// })
+
+// let phrase = "This is long enough for a string to count it words";
+
+// let words = phrase.split(" ");
+
+// console.log(words);
+
+// Create a variable pastaLovers which is going to have all the students who have 
+// 'pasta' as part of their favoriteFoods
+
+// From the students list, select the students that have 'pasta'
+// const pastaLovers = [];
+// //1. Go through the student list
+//         for(let i = 0; i < studentsList.length; i++){
+          
+//             if(studentsList[i].favoriteFoods.includes('pasta') || studentsList[i].favoriteFoods.includes('Pasta') || studentsList[i].favoriteFoods.includes('pastas') || studentsList[i].favoriteFoods.includes('Pastas') ){
+//                 pastaLovers.push(studentsList[i])
+//             }
+//         // 2. Check if they like pasta
+//         //   2a. Look at property favoriteFoods
+//         //   2b. Check if it includes pasta
+//         //   2c. If it includes pasta, add the current student to pastaLovers 
+//         }
+const pastaLovers = studentsList.filter(function(student){
+    return student.favoriteFoods.includes('pasta') || student.favoriteFoods.includes('Pasta') || student.favoriteFoods.includes('pastas') || student.favoriteFoods.includes('Pastas');
+})
+console.log('pastaLovers', pastaLovers.length)
+
+const berlinStudents = [];
+
+for(let i = 0; i < studentsList.length; i++){
+    if(studentsList[i].city.includes('Berlin') || studentsList[i].city.includes('berlin')){
+        berlinStudents.push(studentsList[i]);
+    }
+}
+
+console.log('berlinStudents', berlinStudents.length);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+ 
+const evenNumbers = numbers.filter(function (number) {
+  return number % 2 === 0; // number / 2 --> remainder === 0
+});
+
+const oddNumbers = numbers.filter(function (number) {
+    return number % 2 !== 0; // number / 2 --> remainder !== 0
+  });
+ 
+console.log('evenNumbers',evenNumbers); 
+console.log('oddNumbers', oddNumbers)
