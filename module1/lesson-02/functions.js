@@ -17,6 +17,18 @@
 // i.e: [2,5,8] ---> 5
 //      [1,2,3] ---> 2
 
+// function maxOfTwoNumbers that takes two numbers as arguments and --> function name, number of parameters
+// returns the bigger number. --> end result
+
+// the function findLongestWord that takes as an argument an array of words  --> function name, number of parameters
+//  returns the longest one. --> end result
+// If there are 2 with the same length, it should return the first occurrence --> Tip/Hint
+
+// the function named sumNumbers that takes an array of numbers as an argument --> function name, number of parameters
+//  and returns the sum of all of the numbers in the array.
+// [2,4,5,6] ---> 17
+// [12,32] --> 44
+
 // Build simple functions (i.e: sayHello, doMultiplication, printName...etc)
 
 // Create a function that accepts 3 numbers as parameters, and returns their sum.
