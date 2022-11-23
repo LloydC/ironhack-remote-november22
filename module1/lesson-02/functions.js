@@ -112,17 +112,6 @@ console.log(maxOfTwoNumbers(3,35))
 //  returns the longest one. --> end result
 // If there are 2 with the same length, it should return the first occurrence --> Tip/Hint
 
-// the function named sumNumbers that takes an array of numbers as an argument --> function name, number of parameters
-//  and returns the sum of all of the numbers in the array.
-// [2,4,5,6] ---> 17
-// [12,32] --> 44
-
-// Build simple functions (i.e: sayHello, doMultiplication, printName...etc)
-
-// Create a function that accepts 3 numbers as parameters, and returns their sum.
-// Create a function named isNameOddOrEven() that accepts a string as a parameter. 
-// The function should return whether a received string has an odd or even number of letters. 
-// The expected return should be in the following format - string: ’<name> has an even/odd number of letters’.
 
 // Create an array "bootcampStudents" made of all the students
 
