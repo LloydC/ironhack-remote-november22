@@ -1,21 +1,24 @@
 // Get the value of the first student’s name
 // Get the age of the student named Sarah
 const students = [
-    { name: "Bob", age: 17 },
-    { name: "Susy", age: 18 },
-    { name: "Ted", age: 18 },
-    { name: "Sarah", age: 20 },
+    { name: "Bob", age: 17 }, // index position 0
+    { name: "Susy", age: 18 }, // index position 1
+    { name: "Ted", age: 18 }, // index position 2
+    { name: "Sarah", age: 20 }, // index position 3
     { name: "Bill", age: 19 }
   ];
+  console.log(students[0].name)
+  console.log(students[3].age)
 
 // Get the value Bill to display
 // Get the value Thomas to display
   const twoD = [
-    ["Bob", "Susy", "Ted"],
-    ["Lilly", "Sarah", "Bill"],
-    ["Thomas", "Barry", "Alex"]
+    ["Bob", "Susy", "Ted"], // index position 0
+    ["Lilly", "Sarah", "Bill"], // index position 1
+    ["Thomas", "Barry", "Alex"] // index position 2
   ];
-
+console.log(twoD[1][2])
+console.log(twoD[2][0])
   // Student example with multiple classrooms
 
   // Retrieve the second “classroom” of students
@@ -59,6 +62,10 @@ const students = [
       { firstName: 'Robert', lastName: 'Beatty', age: 30 }
     ]
   ];
+  console.log(classes[1])
+  console.log(classes[4][0].firstName)
+  console.log(classes[1][3].age)
+  console.log(classes[4][4].lastName)
 
 // get the city value from classroom
 // get back the teacher’s age from classRoom
@@ -75,6 +82,8 @@ const students = [
     }
   };
 
+  console.log(classRoom.teacher.address.city)
+  console.log(classRoom.teacher.age)
   // Classroom System Example
 
   // Get Teacher's age
@@ -82,14 +91,15 @@ const students = [
   const classRoomSystem = {
     teacher: { firstName: 'Marcelino', lastName: 'Padberg', age: 25 },
     students: [
-      { firstName: 'Aliyah', lastName: 'Schulist', age: 18 },
-      { firstName: 'Cleveland', lastName: 'Towne', age: 28 },
-      { firstName: 'Jan', lastName: 'Quitzon', age: 18 },
-      { firstName: 'Alaina', lastName: 'Runolfsdottir', age: 18 },
+      { firstName: 'Aliyah', lastName: 'Schulist', age: 18 }, // index 0
+      { firstName: 'Cleveland', lastName: 'Towne', age: 28 }, // index 1
+      { firstName: 'Jan', lastName: 'Quitzon', age: 18 }, // index 2
+      { firstName: 'Alaina', lastName: 'Runolfsdottir', age: 18 }, // index 3
       { firstName: 'Gerhard', lastName: 'Bergstrom', age: 23 }
     ]
   };
-
+  console.log(classRoomSystem.teacher.age)
+  console.log(classRoomSystem.students[3].firstName)
   // School with Classroom System Example
 
   // Get Second's classroom Teacher's age
@@ -122,6 +132,37 @@ const students = [
       }
     ]
   }
+console.log(school.classRooms[1].teacher.age)
+
+
+// function getAgeAverage(students){
+//   //1.Get to the students objects
+//   // 2.Run a loop
+//   // 3.Every time we access a student get the value of the age property
+//   // 4. divide it by the total number of students of the class --> length of the students array
+//   const classroomStudentsSum = students.reduce((accumulator, currentStudent) =>{
+//     return accumulator + currentStudent.age;
+// }, 0);
+
+// const classRoomOneStudentsAgeAvg = classroomStudentsSum/students.length;
+// return classRoomOneStudentsAgeAvg;
+// }
+
+// console.log('clasroom 1 avg age: ', getAgeAverage(school.classRooms[0].students))
+// console.log('clasroom 2 avg age: ', getAgeAverage(school.classRooms[1].students))
+
+function getAgeAverage(classRoom){
+  // Get all the students inside a single array
+  const getAllStudentsSum = classRoom.map(studentsGroup => studentsGroup.students).flat().reduce((accumulator, currentStudent) =>{
+        return accumulator + currentStudent.age;
+    }, 0);
+    const getAllStudentsLength = classRoom.map(studentsGroup => studentsGroup.students).flat().length
+    return getAllStudentsSum/ getAllStudentsLength
+  // Make a sum of all the students ages
+  // divide the sum by the total number of students
+}
+
+console.log('avg age for all classes is ',getAgeAverage(school.classRooms))
 
 const classRoom1 = {
   teacher:  {

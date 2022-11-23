@@ -343,4 +343,76 @@ const menu = [
   const averageRate = totalReviews / product.reviews.length;
    
   console.log(`averageRate rate:`, averageRate); //
+
+  const randomNumbers = [22, 23, 99, 68, 1, 0, 9, 112, 223, 64, 18];
+
+
+// Sorting in ASC order
+//   const sortRandomNumbers = randomNumbers.sort((a, b) => {
+//     if (a < b) return -1; // a is less than b
+//     if (a > b) return 1; // a is greater than b
+//     if (a === b) return 0; // a equals b
+//   })
+
+const sortRandomNumbers = randomNumbers.sort((a, b) => a - b) //
+
+//Sorting in DESC order
+// const sortRandomNumbers = randomNumbers.sort((a, b) => {
+//     if (a > b) return -1; // a is less than b
+//     if (a < b) return 1; // a is greater than b
+//     if (a === b) return 0; // a equals b
+//   })
+// const sortRandomNumbers = randomNumbers.sort((a, b) => b-a)
+  console.log('sortRandomNumbers:', sortRandomNumbers)
+
+const wordsArray = ['Hello', 'Goodbye', 'AA', 'First', 'A', 'a', 'Second', 'b', 'Third'];
+
+const sortWordArray = wordsArray.sort((a, b) => {return a.length - b.length; }); // sort according to the length of the words
+const sortWordArrayASC = wordsArray.sort(function(a, b){
+    if(a.toLowerCase() < b.toLowerCase()) { return -1; }
+    if(a.toLowerCase() > b.toLowerCase()) { return 1; }
+    return 0;
+})
+
+const sortWordArrayDESC = wordsArray.sort(function(a, b){
+    if(a.toLowerCase() > b.toLowerCase()) { return -1; }
+    if(a.toLowerCase() < b.toLowerCase()) { return 1; }
+    return 0;
+})
+console.log('sortWordArrayDESC:', sortWordArrayDESC);
+// ["b", "a", "Third", "Second", "Hello", "Goodbye", "First", "AA", "A"]
+
+// Sorting Objects example
+
+const items = [
+    { name: "Edward", value: 21 },
+    { name: "Sharpe", value: 37 },
+    { name: "And", value: 45 },
+    { name: "The", value: -12 },
+    { name: "Magnetic", value: 13 },
+    { name: "Zeros", value: 37 },
+  ];
+  
+  // sort by value
+  const valueSort = items.sort((a, b) => a.value - b.value);
+  console.log('valueSort:', valueSort)
+  // sort by name
+  const nameSort = items.sort((a, b) => { 
+    if (a.name.toUpperCase() <  b.name.toUpperCase()) {
+      return -1;
+    }
+    if (a.name.toUpperCase() >  b.name.toUpperCase()) {
+      return 1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  console.log('nameSort:', nameSort);
+
+const arr1 = ['one', 'two', 'three'];
+const arr2 = [...arr1].reverse(); // using the spread operator to make a copy of arr1
  
+console.log('arr1: ',arr1); 
+console.log('arr2: ',arr2); 
