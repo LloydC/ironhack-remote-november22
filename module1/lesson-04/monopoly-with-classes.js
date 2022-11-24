@@ -38,6 +38,7 @@ let player2 = new Player('Maxence', 'blue');
 let player3 = new Player('Mostafa', 'black');
 
 // --- Turn 1  ---
+console.log('\n')
 console.log("Initial position")
 player1.displayInfo();
 player2.displayInfo();
@@ -47,7 +48,8 @@ player1.move();
 player2.move();
 player3.move();
 
-// // --- Turn 2  ---
+// // // --- Turn 2  ---
+console.log('\n')
 console.log("After Round 1")
 player1.displayInfo();
 player2.displayInfo();
@@ -57,11 +59,32 @@ player1.move();
 player2.move();
 player3.move();
 
-// // --- Turn 2  ---
+// // // --- Turn 2  ---
+console.log('\n')
 console.log("After Round 2")
 player1.displayInfo();
 player2.displayInfo();
 player3.displayInfo();
 
-console.log(Math.round(0.6))
-console.log(Math.round(6.2))
+player1.move();
+player2.move();
+player3.move();
+
+// // // --- Turn 3  ---
+console.log('\n')
+console.log("After Round 3")
+player1.displayInfo();
+player2.displayInfo();
+player3.displayInfo();
+
+player1.move();
+player2.move();
+player3.move();
+
+// // // --- Turn 4  ---
+console.log('\n')
+console.log("After Round 4")
+player1.displayInfo();
+player2.displayInfo();
+player3.displayInfo();
+

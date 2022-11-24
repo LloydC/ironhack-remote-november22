@@ -1,5 +1,13 @@
 let squares = [100, -10, 0, 0, -40, -10, -10, 5, 0, -10, -50, -10, 0, 0, -50, -10];
 
+
+console.log(Math.floor(Math.random()))
+
+
+
+
+
+
 // --- Initialization with methods ---
 
 let player1 = {
@@ -57,16 +65,16 @@ let player1 = {
   };
 
   // --- Turn 1  ---
-player1.move();
-player2.move();
-player3.move();
+// player1.move();
+// player2.move();
+// player3.move();
 
-// --- Turn 2  ---
-player1.move();
-player2.move();
-player3.move();
+// // --- Turn 2  ---
+// player1.move();
+// player2.move();
+// player3.move();
 
-// --- Display info  ---
-player1.displayInfo();
-player2.displayInfo();
-player3.displayInfo();
+// // --- Display info  ---
+// player1.displayInfo();
+// player2.displayInfo();
+// player3.displayInfo();
