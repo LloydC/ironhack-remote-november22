@@ -104,9 +104,19 @@ console.log(solution('world'))
 //       .concat(cc.slice(-4, cc.len));
 // }
 
-function maskify(cc) {
-    return `${"#".repeat(cc.length - 4)}${cc.slice(cc.length - 4)}`;
+// function maskify(cc) {
+//     return `${"#".repeat(cc.length - 4)}${cc.slice(cc.length - 4)}`;
+// }
 
+function maskify(cc) {
+    return Array.from(cc).map((char, index) => {
+        if(index + 4 < cc.length){
+            return '#';
+        }
+        else{
+            return char;
+        }
+    }).join('')
 }
 
 console.log(maskify('1345678912345678'))

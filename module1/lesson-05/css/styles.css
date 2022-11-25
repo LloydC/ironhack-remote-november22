@@ -1,0 +1,23 @@
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: bisque;
+    height: 50px;
+}
+
+#content {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.list-item {
+    color:darkgoldenrod;
+    /* margin: 10px 10px 10px 10px; sets margin-top, margin-right, margin-bottom and margin-left */
+}
+
+span {
+    margin-right: 16px;
+    padding: 0px 0px 0px 0px;
+}
