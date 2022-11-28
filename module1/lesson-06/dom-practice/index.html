@@ -15,7 +15,7 @@
     </ul>
 
 
-    <input type="text" id="newItem"  />
+    <input type="text" id="newItem" >
     <button id="submitItem" onclick="addItem()">Submit new item</button>
     <section>
         <div>
@@ -24,12 +24,13 @@
     </section>
 
     <section>
-        <div>
+        <div id="container">
             <span id="goodbyeWorld">Bye World</span>
         </div>
     </section>
 
-    <button onclick="changeTheme()">Change page theme</button>
+    <button id="themeButton" onclick="changeTheme()">Change page theme</button>
+    <button onclick="console.log(event)">Event button</button>
     
     <script src="index.js"></script>
 </body>
