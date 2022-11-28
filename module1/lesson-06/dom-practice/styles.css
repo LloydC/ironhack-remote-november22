@@ -1,0 +1,9 @@
+.defaultBackground {
+    background-color: grey;
+    color: black;
+}
+
+.alternateBackground{
+    background-color: coral;
+    color: darkgray;
+}
