@@ -1,0 +1,139 @@
+/* color scheme --> https://coolors.co/f7ebec-ddbdd5-ac9fbb-59656f-1d1e2c */
+html {
+    font-size: 10px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1D1E2C;
+}
+
+nav, footer {
+    font-size: 2rem;
+    background-color: #1D1E2C;
+    color: #F7EBEC;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    text-align: center;
+}
+
+li:hover {
+    background-color: #AC9FBB;
+    color: #1D1E2C;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#home, #curriculum {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.container {
+    height: 40rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.teacher {
+    width: 40rem;
+    height: auto;
+    text-align: center;
+    padding-top: 4rem;
+    border: 1px solid black;
+    font-size: 1.6rem;
+}
+
+
+footer {
+    width: 100vw;
+    height: 8rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-picture {
+    border-radius: 90%;
+    margin: 0 auto;
+    /* margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
+iframe {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    opacity: 0.8;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#menu-content {
+    font-size: 2.4rem;
+    line-height: 3.439rem;
+}
+
+.video-wrapper {
+    width: 100vw;
+    height: 60rem;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -200;
+}
+
+.header {
+    position: relative;
+    color: white;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+.module {
+    width: 50rem;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 4rem;
+}
+
+.module > p {
+    font-size: 1em;
+}
+
+.module img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.formOption {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+}

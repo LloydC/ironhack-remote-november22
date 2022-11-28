@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>IronHack Bootcamp Team Page Example</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="index.html"><li>Ironhack Coding Bootcamp</li></a>
+            <a href="team.html"><li>Teaching Team</li></a>
+            <a href="curriculum.html"><li>Curriculum</li></a>
+        </ul>
+    </nav>
+    
+    
+    <section class="student-container">
+        
+    </section>
+
+    <section>
+        <form id="studentForm" style="margin-left: 60rem; margin-top: 2rem;">
+            <div class="formOption">
+                <label>Name:</label>
+                <input type="text" name="" id="studentName">
+                <br />
+            </div>
+            <div class="formOption">
+                <label>Description:</label>
+                <textarea name="" id="studentDescription" cols="30" rows="10"></textarea>
+                <br />
+            </div>
+           <div class="formOption">
+                <label>Picture:</label>
+                <input type="text" name="" id="studentPicture">
+                <br />
+           </div>
+            <button id="studentFormButton" type="submit" onclick="createStudent(event)">Add Student</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p id="footer-content">Made with ❤️ by Ironhack</p>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+</html>
