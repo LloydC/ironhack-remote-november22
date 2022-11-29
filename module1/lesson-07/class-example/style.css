@@ -1,0 +1,53 @@
+.hide {
+    display: none;  /*hiding whichever element has that property set on*/
+}
+
+.show {
+    display: block;
+}
+
+em {
+    color:darkgreen;
+}
+
+ul em {
+    color:cornflowerblue;
+}
+
+ul {
+    background-color: red;
+}
+
+ul li {
+    /* direct children of the ul  */
+    background-color: bisque;
+    list-style: none;
+}
+
+ul > div {
+    /* direct div descendants of the ul */
+   color: darkgoldenrod; 
+}
+
+div {
+    background-color: green;
+  }
+   
+  /* ID=former... make it red*/
+  #former {
+    background-color: red;
+  }
+   
+  /* First adjacent sibling of #former is YELLOW */
+  #former + div {
+    background-color: yellow;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+  font-family: 'Alumni Sans Collegiate One', sans-serif;
+  color: blue;
+}
+
+a[href*="hack"] {
+    color: green;
+  }
