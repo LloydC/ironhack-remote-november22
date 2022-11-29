@@ -2,55 +2,65 @@ html{
     font-size: 10px;
 }
 
-body {
-    background-color: burlywood;
+@media (min-width: 1000px) {
+    /* this will apply to screens above 1000px */
+    body {
+        background-color: burlywood;
+    }
+
+    nav {
+        width: 100vw;
+        height: 15rem;
+        background-color: blueviolet;
+    }
+
+    #container {
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 1rem;
+    }
+
+    #left-sidebar ul {
+        width: 20rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #left-sidebar ul > li {
+        width: 15rem;
+        height: 2rem;
+        background-color: aqua;
+        margin-top: 1rem;
+        list-style: none;
+    }
+
+    #content {
+        width: 25rem;
+        height: 20rem;;
+        background-color: antiquewhite;
+    }
+
+    #right-sidebar {
+        width: 25rem;
+        height: 40rem;
+        background-color: aqua;   
+    }
+
+    footer {
+        width: 100vw;
+        height: 10rem;
+        background-color: blue;
+        margin-top: 1rem;
+    }
 }
 
-nav {
-    width: 100vw;
-    height: 15rem;
-    background-color: blueviolet;
-}
-
-#container {
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    padding-top: 1rem;
-}
-
-#left-sidebar ul {
-    width: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#left-sidebar ul > li {
-    width: 15rem;
-    height: 2rem;
-    background-color: aqua;
-    margin-top: 1rem;
-    list-style: none;
-}
-
-#content {
-    width: 25rem;
-    height: 20rem;;
-    background-color: antiquewhite;
-}
-
-#right-sidebar {
-    width: 25rem;
-    height: 40rem;
-    background-color: aqua;   
-}
-
-footer {
-    width: 100vw;
-    height: 10rem;
-    background-color: blue;
-    margin-top: 1rem;
+@media (min-width: 768px) and (max-width: 1000px){
+    /* this will apply to screens between 768px and 1000px */
+    body {
+        background-color: goldenrod;
+    }
 }
 
 @media only screen and (max-width: 768px) { 
