@@ -12,7 +12,7 @@ const ingredients = {
 
 // Initial value of the state (the state values can change over time)
 const state = {
-  pepperoni: true,
+  pepperoni: false,
   mushrooms: true,
   greenPeppers: true,
   whiteSauce: false,
@@ -102,6 +102,7 @@ function renderGlutenFreeCrust() {
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
   let pepperoni = document.querySelector('.btn-pepperoni');
+  console.log(pepperoni.classList)
     let mushrooms = document.querySelector('.btn-mushrooms');
     let greenPeppers = document.querySelector('.btn-green-peppers');
     let sauce = document.querySelector('.btn-sauce');
@@ -113,25 +114,50 @@ function renderButtons() {
     sauce.classList.toggle("active", state.whiteSauce);
 }
 
+
+// const ingredients = {
+//   pepperoni: { name: 'pepperoni', price: 1 },
+//   mushrooms: { name: 'Mushrooms', price: 1 },
+//   greenPeppers: { name: 'Green Peppers', price: 1 },
+//   whiteSauce: { name: 'White sauce', price: 3 },
+//   glutenFreeCrust: { name: 'Gluten-free crust', price: 5 }
+// };
+
+// const state = {
+//   pepperoni: false,
+//   mushrooms: true,
+//   greenPeppers: true,
+//   whiteSauce: false,
+//   glutenFreeCrust: false
+// };
+
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
-  let list = document.querySelector('aside ul');
-    let total = 10;
-    list.innerHTML = "";
-    for (ingredient in ingredients) {
-        if (state[ingredient]) {
-          total += ingredients[ingredient].price;
-          list.innerHTML += `<li>$${ingredients[ingredient].price} ${ingredients[ingredient].name}`;
-        }
-    }
-    document.querySelector('aside strong').innerHTML = total;
+  
+// target the aside ul element which contains the list of ingredients
+// empty/reset the <ul> so there are no <li> ingredients
+// update the <li> based on the properties of our state object {}
+
+// Step 1: go over each property in my state object
+// Step 2: if the property is true then add a new <li> to my <ul>
+  
+  // let list = document.querySelector('aside ul'); //target the aside element that displays the price
+  //   let total = 10; // setting the initial pizza price
+  //   list.innerHTML = ""; // empty the <ul> nested inside the <aside>
+  //   for (ingredient in ingredients) {
+  //       if (state[ingredient]) {
+  //         total += ingredients[ingredient].price; // add current ingredient price to the total
+  //         list.innerHTML += `<li>$${ingredients[ingredient].price} ${ingredients[ingredient].name}</li>`; // generating a new <li> element/updating the <ul> with the current ingredient
+  //       }
+  //   }
+  //   document.querySelector('aside strong').innerHTML = `$${total}`;
 }
 
 renderEverything();
 
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperoni">`
 document.querySelector('.btn.btn-pepperoni').addEventListener('click', function () {
-  state.pepperoni = !state.pepperoni;// state.pepperoni: true -->
+  state.pepperoni = !state.pepperoni;// state.pepperoni: true --> false 
   renderEverything();
 });
 
