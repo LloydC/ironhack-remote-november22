@@ -1,3 +1,4 @@
+function drawOnCanvas(){
 const canvas = document.getElementById('example');
 const ctx = canvas.getContext('2d');
 
@@ -55,12 +56,39 @@ ctx.stroke();
 ctx.closePath();
 
 ctx.fillStyle = 'green';
-ctx.fillText('Start', 145, 170);
+ctx.font = '30px Arial'
+ctx.fillText('Start', 145, 170, 100);
+}
+
+function clearCanvas(){
+    const canvas = document.getElementById('example');
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0, 500, 500)
+}
+
+// const canvas = document.querySelector('#example');
+// const ctx = canvas.getContext('2d');
+
+// const cWidth = canvas.width;
+// const cHeight = canvas.height;
+
+// function drawCanvas(x, y, w, h, color) {
+//   ctx.fillStyle = color;
+//   ctx.fillRect(x, y, w, h);
+// }
 
 
 
-// const img = new Image();
-// imgScale = 640/480;
-
- 
-// img.src = './images/pixel-fireball.png';
+// const state = [stateTwo,stateOne]
+// ctx.save();
+// drawCanvas(10, 20, 30, 30, 'turquoise');
+// ctx.save();
+// ctx.restore();
+// drawCanvas(50, 70, 30, 30, 'orangeRed');
+// ctx.save();
+// drawCanvas(120, 150, 30, 30, 'magenta');
+// ctx.restore();
+// drawCanvas(200, 70, 30, 30);
+// // ctx.save(); // => this would give us back orangeRed
+// // ctx.restore();
+// drawCanvas(250, 20, 30, 30);

@@ -4,32 +4,11 @@
 
 const fireballImg = new Image();
 fireballImg.src = './images/pixel-fireball.png';// "src" has to point as the image is used in HTML file
-console.log(fireballImg);
+// set the start position of our image
+let fireballX = 0;
+let fireballY = 0;
 
-// RECTANGLES
-//fillRect(x, y, width, height);
-// ctx.fillStyle = 'green';
-// ctx.fillRect(20, 10, 100, 100);
-//ctx.clearRect(20, 10, 60, 60);
-
-// ctx.fillStyle = 'blue';
-// ctx.fillRect(20, 10, 25, 25);
-
-// // color the text
-// ctx.fillStyle = 'orange';
-// ctx.font = '20px Times New Roman';
-// 
-// // is going to appear
-// ctx.fillText('Hello there', 20, 40); // ctx.fillText("string", x, y); => x, y are coordinates where the text
-
-// Example 2 
-
-
-
-// // // set the start position of our image
-
-let fireballX = 600;
-let fireballY = 600;
+// Animation Example 1 
 
 function draw(x, y) {
  
@@ -42,17 +21,17 @@ function draw(x, y) {
 
   // // creates rectangle => ctx.fillRect(x, y, width, height);
   // ctx.fillRect(x, 0, 50, 50);
-  fireballX -= 3; // fireballX = 297; ---> changes position of X coordinate
-  fireballY -= 3; // fireballY = 297 
+  fireballX += 3; // fireballX = 297; ---> changes position of X coordinate
+  fireballY += 3; // fireballY = 297 
 
-  if(fireballX > 0){
-    setTimeout(`draw(${x}, ${y})`, 30); // calls itself every 30ms
+  if(fireballX < 600){ // as long as my image start origin is not canvas top left corner
+    setTimeout(`draw(${x}, ${y})`, 50); // calls itself every 30ms/ keep changing the position of the fireball
   }
   else {
     // ctx.clearRect(0, 0, 600, 600);
-    fireballX = 600;
-    fireballY = 600;
-    setTimeout(`draw(${x}, ${y})`, 30); // calls itself every 30ms
+    fireballX = 0;
+    fireballY = 0;
+    setTimeout(`draw(${x}, ${y})`, 50); // calls itself every 30ms
   }
 }
 draw(fireballX,fireballY)

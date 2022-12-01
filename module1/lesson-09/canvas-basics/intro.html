@@ -11,11 +11,21 @@
   <body>
     <!-- the magic happens inside this tag - 
             it's HTML5 tag that supports animation -->
-    <canvas id="example" width="600" height="600"></canvas>
+            <!-- Use this canvas for every example except vertical-bg.js -->
+    <!-- <canvas id="example" width="800" height="400"></canvas> -->
+
+    <canvas id="background-canvas" width="600" height="400"></canvas>
+
+    <canvas id="main-canvas" width="600" height="400"></canvas> 
 
     <!-- include js file after DOM is loaded; 
             if included earlier, you have to use window.onload = function(){ ... } 
             approach in your intro.js file -->
-    <script src="javascript/intro.js"></script>
+    <!-- <script src="javascript/intro.js"></script> -->
+    <!-- <script src="javascript/random-rect.js"></script> -->
+    <!-- <script src="javascript/moving-rect.js"></script> -->
+    <!-- <script src="javascript/ghost-example.js"></script> -->
+    <!-- <script src="javascript/horizontal-bg.js"></script> -->
+    <script src="javascript/vertical-bg.js"></script>
   </body>
 </html>
