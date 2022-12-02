@@ -4,8 +4,10 @@ const ctx = canvas.getContext('2d');
 const backgroundImage = new Image();
 backgroundImage.src = './images/road.png';
 
+let score = 0;
 let frames = 0;
 const myObstacles = [];
+let intervalId;
 
 class Obstacle {
   constructor(width, height, color, x, y) {
@@ -56,6 +58,18 @@ class Car {
   moveRight() {
     this.x += 10;
   }
+  left() {
+    return this.x;
+  }
+  right() {
+    return this.x + this.width;
+  }
+  top() {
+    return this.y;
+  }
+  bottom() {
+    return this.y + this.height;
+  }
 }
 
 function startGame() {
@@ -74,7 +88,8 @@ function updateGame() {
   drawBackground() // redrawing the background
   raceCar.draw(); // redrawing the car
   updateObstacles() // drawing/redrawing the obstacles
-  
+  updateScore() // redraw/update the score
+  checkGameOver();
   // requestAnimationFrame(updateGame)
 }
 
@@ -98,14 +113,56 @@ function updateObstacles() {
     console.log(myObstacles);
   }
 }
+
+function updateScore() {
+  score = Math.floor(frames/10); // 1 sec -->12
+  ctx.font = '18px serif';
+  ctx.fillStyle = 'black';
+  ctx.fillText(`Score: ${score}`, 350, 50);
+}
+
+function crashWith(obstacle) {
+  return !(
+    raceCar.bottom() < obstacle.top() ||
+    raceCar.top() > obstacle.bottom() ||
+    raceCar.right() < obstacle.left() + 5 ||
+    raceCar.left() > obstacle.right() - 5
+  );
+}
+
+function checkGameOver() {
+  const crashed = myObstacles.some(function (obstacle) {
+    return crashWith(obstacle);
+  });
+
+  if(crashed) {
+    stop();
+    console.log("game over");
+
+    const points = Math.floor(frames / 10);
+
+    ctx.font = "35px serif";
+    ctx.fillStyle = "cyan";
+    ctx.fillText(
+      `GAME OVER your score is ${points} `,
+      20,
+      canvas.height / 2
+    );
+  }
+}
+
+function stop() {
+  clearInterval(intervalId);
+}
+
 const raceCar = new Car();
 
 window.onload = () => {
   document.getElementById('start-button').onclick = () => {
    
     startGame(); // initialize the game
-    // setInterval(updateGame, 20) // send updates to the game
-    updateGame();
+    intervalId = setInterval(updateGame, 20) // send updates to the game
+    // updateGame();
   };
 };
 
