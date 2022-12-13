@@ -1,5 +1,6 @@
 const port = 3000; // gateway for incoming requests
 const http = require('http'); // loading the http package (native to Node)
+
 const server = http.createServer((request, response) => {
     console.log(`Someone has requested ${request.url}`);
    
