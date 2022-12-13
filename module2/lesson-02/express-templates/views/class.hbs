@@ -1,7 +1,5 @@
 <ul>
     {{#each students}}
-        <li>
-            <p>{{firstName}} {{lastName}} lives in {{city}}</p>
-        </li>
+        {{> studentCard this }}
     {{/each}}
 </ul>

@@ -1,0 +1,16 @@
+<h1>Random Cat Facts</h1>
+{{!-- <p>{{randomFact}}</p> --}}
+<ul>
+        {{#each randomCatFacts}}
+            {{#if @first}}
+                <li>
+                    <img style="width:100px; height: 100px;" src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80" />
+                    <b>{{this}}</b>
+                </li>
+                {{else if @last}}
+                <li><i>{{this}}</i></li>
+                {{else}}
+                <li>{{this}}</li>
+                {{/if}}
+        {{/each}}
+</ul>
