@@ -1,0 +1,9 @@
+<h1>Student Profile</h1>
+<br>
+<h3><a href="/users/{{student.firstName}}">{{student.firstName}} {{student.lastName}}</a></h3>
+<p>Currently living in {{student.city}}</p>
+{{#if student.likeCats}}
+<span>Cat lover</span>
+{{else}}
+<span> Not a fan of cats</span>
+{{/if}}

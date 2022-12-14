@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const app = express();
 const port = 3000;
 
+const studentList = require('./sampleData/data');
 
 // https://api.chucknorris.io/jokes/random
 
@@ -82,6 +83,18 @@ app.get('/gameofthrones', (req, res) => {
     res.render('characters', {characters: data})
     })
     .catch(err => console.log(err))
+})
+
+app.get('/users', (req, res) => {
+    res.render('users', {students: studentList})
+})
+
+app.get('/users/:username', (req, res) => {
+    console.log('req params', req.params)
+    const foundStudent = studentList.filter(student => student.firstName === req.params.username) // find the student for this profile
+    console.log('foundStudent', foundStudent[0])
+
+    res.render('profile', {student: foundStudent[0]})
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
