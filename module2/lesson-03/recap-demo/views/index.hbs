@@ -1,0 +1,12 @@
+<h1>Hello {{janInformation.firstName}}</h1>
+<br/>
+<p>You are {{janInformation.age}} years old</p>
+<p>My favourite movies are: </p>
+<ul>
+    {{#each janInformation.movies}}
+        <li>{{@key}} {{this}}</li>
+    {{/each}}
+</ul>
+
+<p>My first tattoo {{janInformation.tattoos.first}}</p>
+<p>My favourite joke from Chuck Norris is "{{janInformation.chuckNorrisJoke}}"</p>
