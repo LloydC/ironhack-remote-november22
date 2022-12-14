@@ -20,27 +20,57 @@ app.get('/', (req, res) =>{
     //     firstName: 'Jan',
     //     age: 30
     // }
+   const dadJoke = fetch('https://icanhazdadjoke.com/', {headers: {'Accept': 'application/json'}})
+                    .then(response => response.json())
+                    .then(data => data.joke)
+                    .catch(err => console.log(err))
 
-    fetch('https://api.chucknorris.io/jokes/random')
-    .then(response => response.json())
-    .then(data =>{
+    const chuckNorrisJoke = fetch('https://api.chucknorris.io/jokes/random')
+                            .then(response => response.json())
+                            .then(data => data.value)
+                            .catch(err => console.log(err))
 
-        const chuckNorrisJoke = data.value;
+    Promise.all([dadJoke, chuckNorrisJoke])
+            .then(jokes => {
+                console.log('jokes:', jokes)
+                res.render('index', {
+                        janInformation: { 
+                                    firstName: 'Jan', 
+                                    age: 30, 
+                                    movies: ['Inception', 'Lord of the rings Part 1', 'Lord of the Rings'],
+                                    tattoos: {
+                                        first: 'heartbeat tattoo'
+                                    },
+                                    jokes // jokes: jokes
+                        }
+                        
+                        });
+            })
+            .catch(err => console.log(err))
 
-        res.render('index', {
-        janInformation: { 
-                    firstName: 'Jan', 
-                    age: 30, 
-                    movies: ['Inception', 'Lord of the rings Part 1', 'Lord of the Rings'],
-                    tattoos: {
-                        first: 'heartbeat tattoo'
-                    },
-                    chuckNorrisJoke
-        } // chuckNorrisJoke: chuckNorrisJoke
+
+    //     const chuckNorrisJoke = data.value;
+
+    // fetch('https://api.chucknorris.io/jokes/random')
+    // .then(response => response.json())
+    // .then(data =>{
+
+    //     const chuckNorrisJoke = data.value;
+
+    //     res.render('index', {
+    //     janInformation: { 
+    //                 firstName: 'Jan', 
+    //                 age: 30, 
+    //                 movies: ['Inception', 'Lord of the rings Part 1', 'Lord of the Rings'],
+    //                 tattoos: {
+    //                     first: 'heartbeat tattoo'
+    //                 },
+    //                 chuckNorrisJoke
+    //     } // chuckNorrisJoke: chuckNorrisJoke
         
-        });
-    })
-    .catch(err => console.log(error))
+    //     });
+    // })
+  
     
 })
 

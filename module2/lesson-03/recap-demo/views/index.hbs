@@ -9,4 +9,10 @@
 </ul>
 
 <p>My first tattoo {{janInformation.tattoos.first}}</p>
-<p>My favourite joke from Chuck Norris is "{{janInformation.chuckNorrisJoke}}"</p>
+<p>My favourite jokes are: </p>
+
+<ul>
+    {{#each janInformation.jokes}}
+    <li>"{{this}}"</li>
+    {{/each}}
+</ul>
