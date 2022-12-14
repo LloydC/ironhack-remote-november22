@@ -1,0 +1,15 @@
+<form action="/search" method="get">
+    <input type="text" name="city" placeholder="Enter a city name">
+    <button type="submit">Search user</button>
+</form>
+
+<br />
+
+{{#if results}}
+    <ul>
+        {{#each results}}
+            <li>{{this.firstName}}</li>
+        {{/each}}
+    </ul>
+    
+{{/if}}

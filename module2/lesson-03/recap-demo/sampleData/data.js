@@ -1,6 +1,7 @@
 let studentOne = {
     firstName: "John",
     lastName: "Danaher",
+    username: "John Dahaner",
     age: 32,
     city: "Berlin",
     drinkCoffee: true,

@@ -91,10 +91,22 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:username', (req, res) => {
     console.log('req params', req.params)
-    const foundStudent = studentList.filter(student => student.firstName === req.params.username) // find the student for this profile
+    const foundStudent = studentList.filter(student => student.firstName.toLowerCase() === req.params.username.toLowerCase()) // find the student for this profile
     console.log('foundStudent', foundStudent[0])
 
     res.render('profile', {student: foundStudent[0]})
+})
+
+app.get('/search', (req, res) =>{
+    console.log('req query', req.query)
+    if(req.query.city){
+        const results = studentList.filter( student => student.city.toLowerCase() === req.query.city.toLowerCase());
+        res.render('search', { results })
+    }
+    else {
+        res.render('search')
+    }
+    
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
