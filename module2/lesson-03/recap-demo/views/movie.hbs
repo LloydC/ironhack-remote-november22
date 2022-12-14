@@ -1,0 +1,16 @@
+<form action="/movie" method="get">
+    <input type="text" name="movieTitle" placeholder="Enter a movie title">
+    <button type="submit">Search for a movie</button>
+</form>
+
+{{#if movies}}
+    {{#each movies}}
+    <div>
+        <h5>{{this.Title}}</h5>
+        <img src="{{this.Poster}}" style="width:100px; height: 150px;"/> 
+        <p>Release year: {{this.Year}}</p>
+    </div>
+    {{/each}}
+{{else}}
+<p>The results of your search will appear here</p>
+{{/if}}

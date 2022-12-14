@@ -1,3 +1,6 @@
+require('dotenv').config();// this will make your .env file accessible via process.env
+
+const bodyParser = require('body-parser');
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
@@ -14,6 +17,7 @@ app.set('views', __dirname + '/views');
 hbs.registerPartials(`${__dirname}/views/partials`);
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.urlencoded({ extended: true })); // necessary step for express to parse/translate req.body successfully
 
 app.get('/', (req, res) =>{
 
@@ -91,10 +95,10 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:username', (req, res) => {
     console.log('req params', req.params)
-    const foundStudent = studentList.filter(student => student.firstName.toLowerCase() === req.params.username.toLowerCase()) // find the student for this profile
-    console.log('foundStudent', foundStudent[0])
+    const foundStudent = studentList.find(student => student.firstName.toLowerCase() === req.params.username.toLowerCase()) // find the student for this profile
+    console.log('foundStudent', foundStudent)
 
-    res.render('profile', {student: foundStudent[0]})
+    res.render('profile', {student: foundStudent})
 })
 
 app.get('/search', (req, res) =>{
@@ -107,6 +111,61 @@ app.get('/search', (req, res) =>{
         res.render('search')
     }
     
+})
+
+// Display the Signup form 
+app.get('/signup', (req, res) => {
+    res.render('signup')
+} )
+
+// Route to add a new student 
+app.post('/signup', (req, res) =>{
+    console.log('req body', req.body)
+
+    const newStudent = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        age: req.body.age,
+        city: req.body.city
+    }
+
+    studentList.push(newStudent);
+
+    setTimeout(() => res.redirect('/users'), 1000)
+})
+
+app.get('/login', (req, res) =>{
+    res.render('login')
+})
+
+app.post('/login', (req, res) => {
+    console.log('req body', req.body)
+    // look in your db for a user that matches the req.body.username
+    const user = studentList.find(student => student.firstName.toLowerCase() === req.body.username.toLowerCase())
+    console.log('user', user)
+
+    res.redirect(`/users/${user.firstName}`)
+    // check that the password in the db is the same as req.body.password
+    // if yes, login the user
+    // otherwise don't login the user
+})
+
+app.get('/movie', (req, res) => {
+    if(req.query.movieTitle){
+        // fetch the omdbAPI for my movie
+        fetch(`http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${req.query.movieTitle}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('movie data', data.Search)
+            res.render('movie', { movies: data.Search})
+        })
+        .catch(err => console.log(err))
+        // send the result to the movie page
+        
+    }
+    else {
+        res.render('movie')
+    }
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
