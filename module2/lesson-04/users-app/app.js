@@ -19,6 +19,16 @@ mongoose
   .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch(error => console.log(error))
 
+app.get('/', (req, res) => {
+    //Get all the users in my database
+    User.find()
+        .then( allUsers =>{
+            res.render('index', { allUsers })
+        })
+        .catch(error => console.log(error))
+    // Send the list of users to my homepage
+})
+
 app.get('/signup', (req, res)=>{
     res.render('signup')
 })
@@ -30,13 +40,20 @@ app.post('/signup', (req, res) =>{
     const { username, email, password } = req.body; // --> const username = req.body.username
     // Create a new user in our DB
     User.create({ username, email, password })
-        .then(() => res.redirect('/profile'))
+        .then(() => res.redirect('/'))
         .catch(error => console.log(error))
     // Redirect our user to their profile page
 })
 
-app.get('/profile', (req, res) => {
-    res.render('profile')
+app.get('/profile/:username', (req, res) => {
+    const { username } = req.params; // const username = req.params.username
+    
+    User.findOne({ username })
+        .then( foundUser => {
+            res.render('profile', foundUser)
+        })
+        .catch(error => console.log(error))
+    
 })
 
 app.listen(port, ()=> console.log(`Users App is running on port ${port}`))
