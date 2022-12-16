@@ -56,4 +56,35 @@ app.get('/profile/:username', (req, res) => {
     
 })
 
+// Route for the form which enables the update
+app.get('/users/edit/:userId', (req, res) => {
+    const { userId }= req.params;
+
+    User.findById(userId)
+        .then(foundUser => {
+            res.render('edit', foundUser)
+        })
+        .catch(error => console.log(error))
+    
+})
+
+// Route that will process the update
+app.post('/users/edit/:userId', (req, res) =>{
+    const { userId }= req.params;
+    const { username, email, password } = req.body;
+
+    User.findByIdAndUpdate(userId, { username, email, password })
+        .then(() => res.redirect(`/profile/${username}`))
+        .catch(error => console.log(error))
+})
+
+//Route that will delete the user 
+app.post('/users/delete/:userId', (req, res) =>{
+    const { userId }= req.params;
+
+    User.findByIdAndDelete(userId)
+        .then(() => res.redirect('/'))
+        .catch(error => console.log(error))
+})
+
 app.listen(port, ()=> console.log(`Users App is running on port ${port}`))
