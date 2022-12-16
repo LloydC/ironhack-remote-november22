@@ -8,6 +8,7 @@ const port = 3000;
 const mongoose = require('mongoose');
 const User = require('./models/User.model'); // loading the User model
 const Pet = require('./models/Pet.model');
+const Address = require('./models/Address.model');
 
 app.set('view engine', 'hbs');
 app.set('views', `${__dirname}/views`);
@@ -35,7 +36,7 @@ app.get('/signup', (req, res)=>{
 })
 
 app.post('/signup', (req, res) =>{
-    console.log('req body', req.body)
+    // console.log('req body', req.body)
     // req.body
     // Get the data from the signup form
     const { username, email, password } = req.body; // --> const username = req.body.username
@@ -92,19 +93,19 @@ app.post('/users/delete/:userId', (req, res) =>{
 
 //Route to add a pet in the DB
 app.post('/animals/create', async (req,res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const { name, animalType, age, userId } = req.body;
 
 
     // async/await solution
     
     try {
-        const owner = await User.findOne({_id: userId})
+        const owner = await User.findOne({_id: userId}) // add await to ensure that User.findOne() gets resolved before continuing our code execution
    
-        const petAction = await Pet.create({ name, animalType, age: Number(age), ownersId: userId})
+        const petAction = await Pet.create({ name, animalType, age: Number(age), ownersId: userId}) // add the Pet to the DB
                                     .then(newPet => {
-                                        owner.petsId.push(newPet._id)
-                                        owner.save();
+                                        owner.petsId.push(newPet._id) // update owner.petsId
+                                        owner.save(); // save the update in the DB
                                     })
                                   
            
@@ -141,6 +142,30 @@ app.get('/animals/:animalId', (req, res) => {
             console.log('pet:', pet)
             res.render('petProfile', pet)
         })
+})
+
+app.post('/address/create', async (req, res) =>{
+   // console.log(req.body)
+    const { houseNumber, streetName, city, zipCode, userId } = req.body;
+
+
+    // async/await solution
+    
+    try {
+        const tenant = await User.findOne({_id: userId}) // add await to ensure that User.findOne() gets resolved before continuing our code execution
+   
+        const addressAction = await Address.create({ houseNumber, streetName, city, zipCode, tenant: userId }) // add the Pet to the DB
+                                    .then(newAddress => {
+                                        tenant.address = newAddress._id; // update tenant.petsId
+                                        tenant.save(); // save the update in the DB
+                                    })
+                                  
+           
+        res.redirect('/');
+    }
+    catch(err) {
+        console.log(err)
+    }
 })
 
 app.listen(port, ()=> console.log(`Users App is running on port ${port}`))

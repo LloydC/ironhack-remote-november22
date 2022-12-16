@@ -8,7 +8,7 @@
 {{#each petsId}}
 
     <div>
-        <h3></h3><a href="/animals/{{_id}}">{{name}}</a></h3>
+        <h3><a href="/animals/{{_id}}">{{name}}</a></h3>
         <img src="{{__dirname}}/{{avatarUrl}}" style="width:50px;height:50px;border-radius:75%;"/>
         <p>{{age}} years old</p>
     </div>
@@ -18,6 +18,7 @@
 </div>
 
 
+<h2>Animal form</h2>
 <form action="/animals/create" method="post">
     <input type="text" name="name" placeholder="Enter your pet name">
     <input type="text" name="animalType" placeholder="Enter your pet type">
@@ -25,3 +26,18 @@
     <input type="hidden" name="userId" value="{{_id}}">
     <button type="submit">Add animal</button>
 </form>
+
+<br/>
+
+{{#unless address}}
+<h2>Address form</h2>
+
+<form action="/address/create" method="post">
+    <input type="text" name="houseNumber" placeholder="Enter your house number">
+    <input type="text" name="streetName" placeholder="Enter your street name">
+    <input type="text" name="city" placeholder="Enter your city">
+    <input type="text" name="zipCode" placeholder="Enter your zip code">
+    <input type="hidden" name="userId" value="{{_id}}">
+    <button type="submit">Add address</button>
+</form>
+{{/unless}}

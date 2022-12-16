@@ -20,7 +20,11 @@ const userSchema = new Schema({
         type: String,
         default: 'images/default-avatar.png'
       },
-    petsId : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }]
+    petsId : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }],
+    address: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Address'
+    }
 })
 
 const User = mongoose.model('User', userSchema);
