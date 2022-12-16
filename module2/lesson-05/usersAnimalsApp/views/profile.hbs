@@ -1,0 +1,12 @@
+<h1>Welcome back {{username}}!</h1>
+<img src="{{__dirname}}/{{avatarUrl}}" style="width:100px; height:100px; border-radius:75%;"/>
+<p>Your email is  {{email}}</p>
+<br/>
+
+<form action="/animals/create" method="post">
+    <input type="text" name="name" placeholder="Enter your pet name">
+    <input type="text" name="animalType" placeholder="Enter your pet type">
+    <input type="number" name="age" placeholder="Enter your pet age">
+    <input type="hidden" name="userId" value="{{_id}}">
+    <button type="submit">Add animal</button>
+</form>

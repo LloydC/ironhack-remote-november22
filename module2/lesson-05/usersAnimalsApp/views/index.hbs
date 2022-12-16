@@ -1,0 +1,12 @@
+<h1>Users list</h1>
+<ul>
+{{#each allUsers}}
+    <li>
+        <a href="/profile/{{this.username}}">{{this.username}}</a>
+        <a href="/users/edit/{{this._id}}"><button>Edit your profile</button></a>
+        <form action="/users/delete/{{this._id}}" method="post">
+            <button type="submit">Delete this profile</button>
+        </form>
+    </li>
+{{/each}}
+</ul>
