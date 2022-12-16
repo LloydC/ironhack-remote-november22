@@ -2,6 +2,21 @@
 <img src="{{__dirname}}/{{avatarUrl}}" style="width:100px; height:100px; border-radius:75%;"/>
 <p>Your email is  {{email}}</p>
 <br/>
+<p>My pets are </p>
+
+<div style="display:flex;justify-content:space-around;">
+{{#each petsId}}
+
+    <div>
+        <h3></h3><a href="/animals/{{_id}}">{{name}}</a></h3>
+        <img src="{{__dirname}}/{{avatarUrl}}" style="width:50px;height:50px;border-radius:75%;"/>
+        <p>{{age}} years old</p>
+    </div>
+
+    
+{{/each}}
+</div>
+
 
 <form action="/animals/create" method="post">
     <input type="text" name="name" placeholder="Enter your pet name">

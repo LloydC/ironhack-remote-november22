@@ -50,7 +50,9 @@ app.get('/profile/:username', (req, res) => {
     const { username } = req.params; // const username = req.params.username
     
     User.findOne({ username })
+        .populate('petsId')
         .then( foundUser => {
+            console.log('user: ', foundUser)
             res.render('profile', foundUser)
         })
         .catch(error => console.log(error))
@@ -96,31 +98,49 @@ app.post('/animals/create', async (req,res) => {
 
     // async/await solution
     
-    const owner = await User.findOne({_id: userId})
+    try {
+        const owner = await User.findOne({_id: userId})
    
-    const petAction = await Pet.create({ name, animalType, age: Number(age), ownersId: userId})
-                                .then(newPet => {
-                                    owner.petsId.push(newPet._id)
-                                    owner.save();
-                                })
-                                .catch(err => console.log(err))
+        const petAction = await Pet.create({ name, animalType, age: Number(age), ownersId: userId})
+                                    .then(newPet => {
+                                        owner.petsId.push(newPet._id)
+                                        owner.save();
+                                    })
+                                  
            
-    res.redirect('/');
+        res.redirect('/');
+    }
+    catch(err) {
+        console.log(err)
+    }
+    
 
     // Promise chain solution
 
-    // User.findOne({_id: userId})
+    // update the owner of the pet after adding the pet to the DB
+    // User.findOne({_id: userId}) // finding the owner in advance so I can update its petsId field later
     //     .then((owner) => {
-    //         return Pet.create({ name, animalType, age: Number(age), ownersId: userId})
+    //         return Pet.create({ name, animalType, age: Number(age), ownersId: userId}) // adding the pet to the DB
     //                 .then(newPet => {
-    //                     owner.petsId.push(newPet._id)
-    //                     owner.save();
+    //                     owner.petsId.push(newPet._id) // adding the newPet to the petsId field
+    //                     owner.save(); // saving that change to the DB
     //                 })
     //     .then(() => res.redirect('/'))
     //     .catch(err => console.log(err))
     // })
     
     
+})
+
+app.get('/animals/:animalId', (req, res) => {
+    const { animalId} = req.params;
+
+    Pet.findOne({_id: animalId})
+        .populate('ownersId')
+        .then((pet) =>{
+            console.log('pet:', pet)
+            res.render('petProfile', pet)
+        })
 })
 
 app.listen(port, ()=> console.log(`Users App is running on port ${port}`))
