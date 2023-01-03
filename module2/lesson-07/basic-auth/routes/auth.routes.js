@@ -5,12 +5,14 @@ const router = express.Router();
 const User = require('../models/User.model')
 const saltRounds = 10;
 
+const { isLoggedIn, isLoggedOut} = require('../middleware/route-guard');
+
 /* GET Signup page */
-router.get("/signup", (req, res) => {
-  res.render("auth/signup");
+router.get("/signup", isLoggedOut, (req, res) => {
+  res.render("auth/signup", { loggedIn: false });
 });
 //  POST Signup page
-router.post("/signup", async (req, res) => {
+router.post("/signup", isLoggedOut, async (req, res) => {
     const { username, email, password } = req.body;
 
     if (!username || !email || !password) {
@@ -26,13 +28,13 @@ router.post("/signup", async (req, res) => {
 })
 
 // Get Login page
-router.get("/login", (req, res) => {
+router.get("/login", isLoggedOut, (req, res) => {
     console.log('SESSION =====> ', req.session);
-    res.render("auth/login")
+    res.render("auth/login", { loggedIn: false })
 })
 
 // Post Login
-router.post("/login", (req, res) => {
+router.post("/login", isLoggedOut, (req, res) => {
     console.log('SESSION =====> ', req.session);
     const { email, password } = req.body;
  
@@ -73,20 +75,15 @@ router.post("/login", (req, res) => {
 //         .catch(err => console.log(err))
 // })
 
-router.get("/profile", (req, res) => {
-    console.log('currentUser:', req.session.currentUser);
-    const {currentUser} = req.session;
+router.get("/profile", isLoggedIn, (req, res) => {
+    // console.log('currentUser:', req.session.currentUser);
+    const { currentUser } = req.session;
+    currentUser.loggedIn = true;
+    res.render("auth/profile", currentUser)
 
-    if(currentUser){
-        res.render("auth/profile", currentUser)
-    }
-    else {
-        res.render("auth/profile")
-    }
-   
 })
 
-router.post('/logout', (req, res) => {
+router.post('/logout', isLoggedIn, (req, res) => {
     req.session.destroy(err => {
       if (err) console.log(err);
       res.redirect('/');

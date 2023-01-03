@@ -15,6 +15,7 @@ const hbs = require("hbs");
 
 const app = express();
 
+// const { isLoggedIn } = require('./middleware/route-guard')
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config/index")(app);
 require("./config/session.config")(app);// this will make the express server able to add a req.session property for every incoming request
