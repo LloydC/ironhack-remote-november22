@@ -54,7 +54,8 @@ router.post("/login", (req, res) => {
       } else if (bcrypt.compareSync(password, user.password)) { // if password is correct
         // res.redirect(`/auth/profile/${user.username}`)
         // res.render('auth/profile', user);
-        req.session.currentUser = user;
+        const { username, email } = user;
+        req.session.currentUser = { username, email }; // creating the property currentUser 
         res.redirect('/auth/profile')
         
       } else { // if password is incorect
@@ -75,6 +76,7 @@ router.post("/login", (req, res) => {
 router.get("/profile", (req, res) => {
     console.log('currentUser:', req.session.currentUser);
     const {currentUser} = req.session;
+
     if(currentUser){
         res.render("auth/profile", currentUser)
     }
@@ -83,5 +85,12 @@ router.get("/profile", (req, res) => {
     }
    
 })
+
+router.post('/logout', (req, res) => {
+    req.session.destroy(err => {
+      if (err) console.log(err);
+      res.redirect('/');
+    });
+  });
 
 module.exports = router;
