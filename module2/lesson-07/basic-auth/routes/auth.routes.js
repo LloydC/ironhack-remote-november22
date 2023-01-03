@@ -27,11 +27,13 @@ router.post("/signup", async (req, res) => {
 
 // Get Login page
 router.get("/login", (req, res) => {
+    console.log('SESSION =====> ', req.session);
     res.render("auth/login")
 })
 
 // Post Login
 router.post("/login", (req, res) => {
+    console.log('SESSION =====> ', req.session);
     const { email, password } = req.body;
  
 //    Data validation check 
@@ -51,7 +53,10 @@ router.post("/login", (req, res) => {
         return;
       } else if (bcrypt.compareSync(password, user.password)) { // if password is correct
         // res.redirect(`/auth/profile/${user.username}`)
-        res.render('auth/profile', user);
+        // res.render('auth/profile', user);
+        req.session.currentUser = user;
+        res.redirect('/auth/profile')
+        
       } else { // if password is incorect
         res.render('auth/login', { errorMessage: 'Incorrect password.' });
       }
@@ -68,7 +73,15 @@ router.post("/login", (req, res) => {
 // })
 
 router.get("/profile", (req, res) => {
-    res.render("auth/profile")
+    console.log('currentUser:', req.session.currentUser);
+    const {currentUser} = req.session;
+    if(currentUser){
+        res.render("auth/profile", currentUser)
+    }
+    else {
+        res.render("auth/profile")
+    }
+   
 })
 
 module.exports = router;
