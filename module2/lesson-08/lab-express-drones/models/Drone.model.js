@@ -11,6 +11,10 @@ const droneSchema = new Schema({
   },
   maxSpeed: {
     type: Number
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
 });
 

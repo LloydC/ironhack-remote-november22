@@ -10,7 +10,8 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", async (req,res) => {
-    const { username, password } = req.body;
+    const { username, password, imageUrl } = req.body;
+    const imageDB = imageUrl === '' ? 'images/default-avatar.png' : imageUrl;
  
     // make sure users fill all mandatory fields:
     if (!username || !password) {
@@ -28,9 +29,9 @@ router.post("/signup", async (req,res) => {
   }
   const passwordHash = await bcrypt.hash(password, saltRounds);
   
-  User.create({username, password: passwordHash})
+  User.create({username, password: passwordHash, imageUrl: imageDB})
       .then((newUser) => {
-        req.session.currentUser = {username: newUser.username};
+        req.session.currentUser = {username: newUser.username, imageUrl: newUser.imageUrl};
         res.redirect(`/auth/profile`)
       })
       .catch(err => console.log(err))
@@ -62,8 +63,8 @@ router.post('/login', (req, res) => {
       } else if (bcrypt.compareSync(password, user.password)) { // if password is correct
         // res.redirect(`/auth/profile/${user.username}`)
         // res.render('auth/profile', user);
-        const { username } = user;
-        req.session.currentUser = { username }; // creating the property currentUser 
+        const { username, imageUrl } = user;
+        req.session.currentUser = { username, imageUrl }; // creating the property currentUser 
         res.redirect('/auth/profile')
         
       } else { // if password is incorect
