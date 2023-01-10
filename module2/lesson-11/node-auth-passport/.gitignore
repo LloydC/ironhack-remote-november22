@@ -1,6 +1,6 @@
 # Dependency directory
 node_modules
-
+package-lock.json
 # Debug log from npm
 npm-debug.log
 
@@ -9,3 +9,4 @@ npm-debug.log
 
 #Vscode settings
 .vscode
+.DS_Store
