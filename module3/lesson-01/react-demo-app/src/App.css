@@ -1,0 +1,18 @@
+.App {
+  height: 100vh;
+  text-align: center;
+  background-color: burlywood;
+}
+
+.animal-gallery {
+  display: flex;
+  justify-content: space-around;
+}
+
+.animalPicture {
+  width: 100px;
+  height: 100px;
+  border-radius: 75%;
+  margin-bottom: 12px;
+}
+
