@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function AddMovie(props){
-    const { movies , setMovies } = props;
+    const { movies , setMovies, moviesData, setMoviesData } = props;
 
     const [title, setTitle] = useState("");
     const [director, setDirector] = useState("");
@@ -9,14 +9,15 @@ function AddMovie(props){
     const [hasOscars, setHasOscars] = useState(false);
 
     const handleSubmit = (event) => {
-        event.preventDefault() // prevent the form from reloading the page
-            const _id = `${Math.random()}`
+       event.preventDefault() // prevent the form from reloading the page   
         // Create a new movie
-        
+        const _id = `${Math.random()}`
         const newMovie = { _id, title, director, hasOscars, IMDBRating: Number(IMDBRating)}
         const updateMoviesCopy = [...movies, newMovie]
+        const updateMoviesDataCopy = [...moviesData, newMovie];
         // add the new movie to the list of movies
         setMovies(updateMoviesCopy)
+        setMoviesData(updateMoviesDataCopy)
         // empty the form
         setTitle("");
         setDirector("")
