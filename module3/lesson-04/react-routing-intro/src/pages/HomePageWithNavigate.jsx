@@ -5,7 +5,7 @@ const imgURL = "https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m
  
  
 function HomePageWithNavigate() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(true);
  
   if (!isLoggedIn) return <Navigate to="/error" />;
  
