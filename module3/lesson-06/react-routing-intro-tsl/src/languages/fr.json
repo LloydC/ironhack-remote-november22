@@ -1,0 +1,3 @@
+{
+    "navbar": [{"text": "Page d'accueil", "path": "/"}, {"text": "A propos", "path": "/about"}, {"text": "Projets", "path": "/projects"}]
+}

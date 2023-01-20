@@ -3,7 +3,7 @@ import { Divider, Input } from 'antd';
 
 // Iteration 4
 function AddFoodForm(props) {
-    const {foods, setFoods, setFoodsFilter} = props;
+    const {foodsFilter, setFoods, setFoodsFilter} = props;
 
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
@@ -14,7 +14,7 @@ function AddFoodForm(props) {
         event.preventDefault();
 
         const newFood = {name, image, calories, servings }
-        const updateFoodsList = [...foods, newFood];
+        const updateFoodsList = [...foodsFilter, newFood];
         setFoods(updateFoodsList)
         setFoodsFilter(updateFoodsList)
         //update the state variable with foods

@@ -7,13 +7,13 @@ import Search from './components/Search';
 
 function App() {
   const [foods, setFoods] = useState(foodsData);
-  const [foodsFilter, setFoodsFilter] = useState(foodsData);
+  const [foodsFilter, setFoodsFilter] = useState(foodsData); // never going to be filtered
 
   return (
     <div className="App">
       <Search setFoods={setFoods} foodsFilter={foodsFilter}/>
       <FoodList foods={foods} />
-      <AddFoodForm foods={foods} setFoods={setFoods} setFoodsFilter={setFoodsFilter}/> 
+      <AddFoodForm foodsFilter={foodsFilter} setFoods={setFoods} setFoodsFilter={setFoodsFilter}/> 
     </div>
   );
 }
