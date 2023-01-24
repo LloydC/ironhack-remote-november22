@@ -10,27 +10,28 @@ export const LanguageContext = createContext({
   // get text according to id & current language
 export function Text({ tid }) {
     const languageContext = useContext(LanguageContext);
-  
     return languageContext.dictionary[tid] || tid;
   };
   
 
   // it provides the language context to app
-export function LanguageProvider({ children }) {
+export function LanguageProvider(props) {
     const [userLanguage, setUserLanguage] = useState('en');
   
+    const userLanguageChange = selected => {
+      const newLanguage = languageOptions[selected] ? selected : 'en'
+      setUserLanguage(newLanguage);
+    }
+
     const provider = {
       userLanguage,
       dictionary: dictionaryList[userLanguage],
-      userLanguageChange: selected => {
-        const newLanguage = languageOptions[selected] ? selected : 'en'
-        setUserLanguage(newLanguage);
-      }
+      userLanguageChange 
     };
   
     return (
       <LanguageContext.Provider value={provider}>
-        {children}
+        {props.children}
       </LanguageContext.Provider>
     );
   };
