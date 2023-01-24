@@ -7,6 +7,7 @@ function Navbar() {
 
   return (
    <nav>
+    {user && <span>Welcome back {user.name}</span>}
       <Link to="/">
         <button>Home</button>
       </Link>

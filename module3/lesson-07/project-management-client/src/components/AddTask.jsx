@@ -10,10 +10,10 @@ function AddTask(props) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const storedToken = localStorage.getItem('authToken');
     const newTask = { title, description, projectId}
 
-    axios.post(`${process.env.REACT_APP_API_URL}/api/tasks`, newTask)
+    axios.post(`${process.env.REACT_APP_API_URL}/api/tasks`, newTask, { headers: { Authorization: `Bearer ${storedToken}` } })
         .then(() => {
             setTitle("");
             setDescription("");

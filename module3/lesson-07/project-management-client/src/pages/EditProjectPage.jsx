@@ -12,10 +12,10 @@ function EditProjectPage(props) {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const storedToken = localStorage.getItem('authToken');
     //update the project
     const updatedProject = {title, description}
-    axios.put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, updatedProject)
+    axios.put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, updatedProject, { headers: { Authorization: `Bearer ${storedToken}` } })
         .then(() => navigate(`/projects/${projectId}`))
         .catch(err => console.log(err))
     // redirect the user to the project's page
@@ -26,8 +26,9 @@ function EditProjectPage(props) {
 
   const deleteProject = () => {                    //  <== ADD
     // Make a DELETE request to delete the project
+    const storedToken = localStorage.getItem('authToken');
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
       .then(() => {
         // Once the delete request is resolved successfully
         // navigate back to the list of projects.
@@ -36,9 +37,10 @@ function EditProjectPage(props) {
       .catch((err) => console.log(err));
   };  
 
-   useEffect(() => {                                  // <== ADD
+   useEffect(() => {  
+    const storedToken = localStorage.getItem('authToken');                                // <== ADD
      axios
-       .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+       .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
        .then((response) => {
          /* 
            We update the state with the project data coming from the response.

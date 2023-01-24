@@ -9,12 +9,12 @@ function AddProject(props) {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const storedToken = localStorage.getItem('authToken');
     // Grab the state variable values
     // Add a new project
     const newProject = { title, description }
     // Add that project to the DB ==> send a POST request to 'http://localhost:5005/api/projects'
-    axios.post(`${process.env.REACT_APP_API_URL}/api/projects`, newProject)
+    axios.post(`${process.env.REACT_APP_API_URL}/api/projects`, newProject, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
         // Reset the state
         setTitle("");
