@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import authMethods from "../service/auth.service";
@@ -28,18 +28,33 @@ const LoginPage = () => {
             .catch(err => console.error(err))
     }
   return (
-    <div>
-    <h1>Login</h1>
+<div className="loginContainer">
+    <div className="ovalBackground">
+        <div style={{ width: 'inherit'}}>   
+            <form onSubmit={handleSubmit} className="loginForm">
+                <div>
+                    <h1>Login</h1> 
+                    <label>Username</label>
+                    <br />
+                    <input type="text" name="username" value={user.username} onChange={handleChange} />
+                    <br />
+                    <label>Password</label>
+                    <br />
+                    <input type="password" name="password" value={user.password}  onChange={handleChange} />
+                    <br />
+                    <p>If you don't have an account yet, you can create your account <Link to={'/signup'}>here</Link> </p>
+                </div>
 
-    <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input type="text" name="username" value={user.username} onChange={handleChange} />
-        <br />
-        <label>Password</label>
-        <input type="password" name="password" value={user.password}  onChange={handleChange} />
-        <br/>
-        <button type="submit">Log In</button>
-    </form>
+                <div className="loginRightSection">
+                    <h2>Awesome to have at IronProfile again</h2>
+                    <div>
+                        <p>If you signup, you agree with all our terms and conditions where we can do whatever we want with the data!</p>
+                        <button type="submit">Login</button>
+                    </div>
+                </div>    
+            </form>
+        </div>
+    </div>
 </div>
   )
 }

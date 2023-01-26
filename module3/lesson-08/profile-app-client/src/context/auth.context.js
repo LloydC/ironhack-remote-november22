@@ -21,13 +21,12 @@ function AuthProviderWrapper(props) {
     if (storedToken) {
       // We must send the JWT token in the request's "Authorization" Headers
       authMethods.verifyToken(storedToken)
-      .then((response) => {
-        // If the server verifies that the JWT token is valid  
-        const user = response.data;
+      .then((userPayload) => {
+      
        // Update state variables        
         setIsLoggedIn(true);
         setIsLoading(false);
-        setUser(user);        
+        setUser(userPayload);        
       })
       .catch((error) => {
         // If the server sends an error response (invalid token) 

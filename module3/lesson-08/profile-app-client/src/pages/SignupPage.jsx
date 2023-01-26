@@ -22,24 +22,39 @@ const SignupPage = () => {
         
     }
   return (
-    <div>
-        <h1>Sign up</h1>
+    <div className="signUpContainer">
+        <div className="ovalBackground">
+            <div style={{ width: 'inherit'}}>   
+                <form onSubmit={handleSubmit} className="signUpForm">
+                    <div>
+                        <h1>Sign up</h1> 
+                        <label>Username</label>
+                        <br />
+                        <input type="text" name="username" value={user.username} onChange={handleChange} />
+                        <br />
+                        <label>Password</label>
+                        <br />
+                        <input type="password" name="password" value={user.password}  onChange={handleChange} />
+                        <br />
+                        <label>Campus</label>
+                        <br />
+                        <input type="text" name="campus" value={user.campus}  onChange={handleChange} />
+                        <br />
+                        <label>Course</label>
+                        <br />
+                        <input type="text" name="course" value={user.course}  onChange={handleChange} />
+                    </div>
 
-        <form onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input type="text" name="username" value={user.username} onChange={handleChange} />
-            <br />
-            <label>Password</label>
-            <input type="password" name="password" value={user.password}  onChange={handleChange} />
-            <br />
-            <label>Campus</label>
-            <input type="text" name="campus" value={user.campus}  onChange={handleChange} />
-            <br />
-            <label>Course</label>
-            <input type="text" name="course" value={user.course}  onChange={handleChange} />
-            <br/>
-            <button type="submit">Create the account</button>
-        </form>
+                    <div className="signUpRightSection">
+                        <h2>Welcome to IronProfile</h2>
+                        <div>
+                            <p>If you signup, you agree with all our terms and conditions where we can do whatever we want with the data!</p>
+                            <button type="submit">Create the account</button>
+                        </div>
+                    </div>    
+                </form>
+            </div>
+        </div>
     </div>
   )
 }

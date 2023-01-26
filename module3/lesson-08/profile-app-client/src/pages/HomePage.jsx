@@ -2,8 +2,10 @@ import { Link } from "react-router-dom"
 import { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import avatarImage from '../assets/default-avatar.png';
 
 const HomePage = props => {
+    const [showUpload, setShowUpload] = useState(false);
     const [image, setImage] = useState("");
     const { user, setUser, isLoggedIn, logOutUser } = useContext(AuthContext);
     
@@ -37,25 +39,54 @@ const HomePage = props => {
             .catch(err => console.error(err))
       }
   return (
-    <>
-        <div>
-            <h1>IronProfile</h1>
-            <p>Today we will create an app with some cool style!</p>
-        </div>
+<div className="homePageContainer">
+    <div className="ovalBackground">
+        {isLoggedIn && <div style={{ width: 'inherit'}}>  
+            <h1>Profile</h1>
+            <p>Username</p>
+            <p>{user?.username}</p>
+          
+            <p>Campus</p>
+            <p>{user?.campus}</p>
+         
+            <p>Course</p>
+            <p>{user?.campus}</p>
+         
+            <button onClick={logOutUser}>Log out</button>
+        </div>}
+        {!isLoggedIn && <div>
+                <h1>IronProfile</h1>
+                <p>Today we will create an app with some cool style!</p>
+                <div className="signinContainer">
+                    <Link to={'/signup'}><button>Signup</button></Link>
+                    <Link to={'/login'}><button>Login</button></Link>
+                </div>
+            </div>}
 
-        <div>
-            {user && user.image && <img src={user.image} alt={"profile_image"} style={{width: '50px', height: '50px', borderRadius: '75%'}} />}
-            {isLoggedIn && <button onClick={logOutUser}>Log out</button>}
-            {isLoggedIn && <form onSubmit={handleSubmit}>
-                <input type="file" onChange={(e) => handleFileUpload(e)} />
-                <button type="submit">Save new profile image</button>
-                </form>}
-            {!isLoggedIn && <>
-                <Link to={'/signup'}><button>Signup</button></Link>
-                <Link to={'/login'}><button>Login</button></Link>
-            </>}
-        </div>
-    </>
+        {isLoggedIn && 
+            (<div className="homeRightSection">
+                <div>
+                    {user && 
+                    user.image ? 
+                    <img src={user.image} alt={"profile_image"} style={{width: '50px', height: '50px', borderRadius: '75%'}} /> :
+                    <img src={avatarImage} alt={"profile_image"} style={{width: '50px', height: '50px', borderRadius: '75%'}} />
+                    }
+                    {!showUpload &&
+                    <button onClick={()=> setShowUpload(!showUpload)}>Edit Photo</button>
+                    }
+                </div> 
+                <div>
+                {showUpload && 
+                        (<form onSubmit={handleSubmit} className="updateImageForm">
+                            <input type="file" onChange={(e) => handleFileUpload(e)} />
+                            <button type="submit">Save new profile image</button>
+                            </form>)
+                    }
+                </div> 
+            </div>)
+        }
+    </div>
+</div>
   )
 }
 
