@@ -49,7 +49,7 @@ const SignupPage = () => {
                         <h2>Welcome to IronProfile</h2>
                         <div>
                             <p>If you signup, you agree with all our terms and conditions where we can do whatever we want with the data!</p>
-                            <button type="submit">Create the account</button>
+                            <button type="submit"><b>Create the account</b></button>
                         </div>
                     </div>    
                 </form>

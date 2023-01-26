@@ -49,7 +49,7 @@ const LoginPage = () => {
                     <h2>Awesome to have at IronProfile again</h2>
                     <div>
                         <p>If you signup, you agree with all our terms and conditions where we can do whatever we want with the data!</p>
-                        <button type="submit">Login</button>
+                        <button type="submit"><b>Login</b></button>
                     </div>
                 </div>    
             </form>

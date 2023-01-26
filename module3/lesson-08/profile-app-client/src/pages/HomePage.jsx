@@ -43,16 +43,16 @@ const HomePage = props => {
     <div className="ovalBackground">
         {isLoggedIn && <div style={{ width: 'inherit'}}>  
             <h1>Profile</h1>
-            <p>Username</p>
+            <p className="field">Username</p>
             <p>{user?.username}</p>
           
-            <p>Campus</p>
+            <p className="field">Campus</p>
             <p>{user?.campus}</p>
          
-            <p>Course</p>
+            <p className="field">Course</p>
             <p>{user?.campus}</p>
          
-            <button onClick={logOutUser}>Log out</button>
+            <button className="logOutButton" onClick={logOutUser}>Log out</button>
         </div>}
         {!isLoggedIn && <div>
                 <h1>IronProfile</h1>
