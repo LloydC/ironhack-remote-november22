@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
+// import axios from "axios";
+import authMethods from "../service/auth.service";
  
 const AuthContext = createContext();
  
@@ -19,10 +20,7 @@ function AuthProviderWrapper(props) {
     // If the token exists in the localStorage
     if (storedToken) {
       // We must send the JWT token in the request's "Authorization" Headers
-      axios.get(
-        `${process.env.REACT_APP_API_URL}/auth/verify`, 
-        { headers: { Authorization: `Bearer ${storedToken}`} }
-      )
+      authMethods.verifyToken(storedToken)
       .then((response) => {
         // If the server verifies that the JWT token is valid  
         const user = response.data;

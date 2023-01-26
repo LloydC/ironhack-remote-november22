@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import authMethods from "../service/auth.service";
 
 const LoginPage = () => {
     const [user, setUser] = useState({username: '', password: ''});
@@ -17,10 +18,10 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
-            .then((response) =>{
+       authMethods.logIn(user)
+            .then((tokenObject) =>{
                 // store the token in localStorage
-                storeToken(response.data.authToken)
+                storeToken(tokenObject.authToken)
                 authenticateUser()
                 navigate("/")
             } )

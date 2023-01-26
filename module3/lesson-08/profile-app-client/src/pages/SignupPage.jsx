@@ -1,6 +1,7 @@
 import { useState } from "react";
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import authMethods from "../service/auth.service"
 
 const SignupPage = () => {
     const [user, setUser] = useState({username: '', password: '', campus: '', course: ''});
@@ -15,7 +16,7 @@ const SignupPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         ///
-        axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, user)
+        authMethods.signUp(user)
             .then(() => navigate('/login'))
             .catch(err => console.error(err))
         
