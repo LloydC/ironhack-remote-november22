@@ -37,7 +37,7 @@ button:hover {
   cursor: pointer;
 }
 
-button[type="submit"] {
+button[type="submit"], .cancelEditButton {
   background-color: lightgrey;
 }
 
@@ -101,5 +101,7 @@ input {
 
 .logOutButton {
   color: #D0021B;
-  background-color: none;
+  outline: none;
+  background: transparent;
+  border: 1px solid transparent;
 }

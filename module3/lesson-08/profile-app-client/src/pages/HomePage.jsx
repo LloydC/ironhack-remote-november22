@@ -79,6 +79,7 @@ const HomePage = props => {
                 {showUpload && 
                         (<form onSubmit={handleSubmit} className="updateImageForm">
                             <input type="file" onChange={(e) => handleFileUpload(e)} />
+                            <button className="cancelEditButton" onClick={()=> setShowUpload(!showUpload)}>Cancel Edit</button>
                             <button type="submit">Save new profile image</button>
                             </form>)
                     }
