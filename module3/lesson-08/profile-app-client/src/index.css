@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  background-color: #c0e3be;
+  background-image: linear-gradient(#C1DFC4, #DEECDD);
 }
 
 h1, h2 {
@@ -10,7 +10,7 @@ h1, h2 {
 
 h1 {
   font-size: 20px;
-  color: #c0e3be;
+  color: #638165;
 }
 
 h2 {
@@ -27,8 +27,8 @@ p {
 button {
   width: 150px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #c0e3be;
-  border-color: #c0e3be;
+  background-color: #638165;
+  border-color: #638165;
   border-radius: 2px;
   margin-top: 12px;
 }
@@ -100,6 +100,6 @@ input {
 }
 
 .logOutButton {
-  color: red;
+  color: #D0021B;
   background-color: none;
 }

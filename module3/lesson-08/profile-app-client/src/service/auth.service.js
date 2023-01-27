@@ -30,6 +30,13 @@ const uploadPhoto = (uploadData) => {
                 .catch(err => console.error(err))
 }
 
+const getCurrentUser = () => {
+    const storedToken = localStorage.getItem('authToken')
+    return api.get("/api/users", { headers: { Authorization: `Bearer ${storedToken}`} })
+    .then(response => response.data)
+    .catch(err => console.error(err))
+}
+
 const editUser = ({username, campus, course, image }) => {
     return api.put("/api/users", {username, campus, course, image})
 }
@@ -39,6 +46,7 @@ const authMethods = {
     logIn,
     verifyToken,
     uploadPhoto,
+    getCurrentUser,
     editUser
 }
 
