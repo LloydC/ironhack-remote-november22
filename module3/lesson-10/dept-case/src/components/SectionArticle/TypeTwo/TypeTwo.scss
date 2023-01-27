@@ -1,0 +1,27 @@
+@use '../../../assets/styles/mixins.scss' as*;
+
+.articles-two-container {
+    width: 98.1rem;
+    display: flex;  
+    flex-direction: column-reverse;
+    margin: 0 auto;
+    @include media {
+        flex-direction: row;
+        // justify-content: space-between;
+    }
+}
+
+.type-two-articles{
+    width: 54.3rem;
+    margin-left: 1.6rem;
+    @include media {
+    margin-right: 1.6rem;
+    }
+}
+
+.type-three-articles{
+    margin-top: 3.2rem;
+    @include media {
+        
+    }
+}

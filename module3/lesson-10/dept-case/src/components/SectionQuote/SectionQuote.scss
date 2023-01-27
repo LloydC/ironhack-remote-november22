@@ -1,0 +1,37 @@
+@use '../../assets/styles/mixins.scss' as*;
+
+.quote-container{
+    width: 34.9rem;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding-top: 3.6rem;
+    margin: 0 auto;
+    @include media {
+    width: 93.16vw;
+    padding-top: 7.2rem;
+    text-align: center;
+    }
+}
+
+.quote {
+    @include tekoBase;
+    margin-bottom: 1.6rem;
+
+    @include media {
+        font-family: 'Teko', sans-serif;
+        font-weight: $font-weight-regular;
+        font-size: 3.6rem;
+        line-height: 5.159rem;
+        margin-bottom: 3.3rem;
+        color: $color-light-black;
+    }
+}
+
+.quote-author {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: $font-weight-bold;
+    font-size: 1.3rem;
+    line-height: 1.49rem;
+    color: $color-dark-black;
+    margin-bottom: 3.6rem;
+}

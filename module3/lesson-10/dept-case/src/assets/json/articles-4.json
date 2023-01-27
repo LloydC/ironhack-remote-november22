@@ -1,0 +1,22 @@
+{
+    "data": {
+        "en": [
+            {
+                "title": "Delivering complex commerce solutions",
+                "company": "Liberty Global",
+                "image": "https://i.ibb.co/wwMnf7G/image45.jpg",
+                "articleType": "Type1",
+                "industry": "Telecommunications",
+                "url": "https://www.libertyglobal.com/"
+            },
+            {
+                "title": "Swipe to find your next holiday destination",
+                "company": "Arla",
+                "image": "https://i.ibb.co/yks9nX1/image46.jpg",
+                "articleType": "Type1",
+                "industry": "Dairy Producer",
+                "url": "https://www.arla.com/"
+            }
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+@import './variables';
+
+@mixin media {
+    @media (min-width: 768px){
+        @content;
+    }
+}
+@mixin tekoMenu {
+    font-family: 'Teko', sans-serif;
+    font-size: $font4;
+    line-height: 26px;
+    color: $color-regular-black;
+}
+
+@mixin tekoBase {
+    font-family: 'Teko', sans-serif;
+    font-size: $font5;
+    line-height: 34px;
+    color: $color-light-black;
+}
+
+@mixin tekoRegular {
+    font-family: 'Teko', sans-serif;
+    font-size: $font6;
+    line-height: 43px;
+    color: $color-regular-black;
+}
+
+@mixin tekoNormal {
+    font-family: 'Teko', sans-serif;
+    font-size: $font7;
+    line-height: 46px;
+    color: $color-white;
+}
+
+@mixin tekoLarge {
+    font-family: 'Teko', sans-serif;
+    font-size: $font8;
+    line-height: 72px;
+}
+
+@mixin tekoMobileHero {
+    font-family: 'Teko', sans-serif;
+    font-size: 170px;
+    line-height: 244px;
+    color: $color-regular-black;
+}
+
+@mixin tekoDesktopHero {
+    font-family: 'Teko', sans-serif;
+    font-size: 400px;
+    line-height: 573px;
+    color: $color-regular-black;
+}

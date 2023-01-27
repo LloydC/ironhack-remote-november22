@@ -1,0 +1,22 @@
+{
+    "data": {
+        "en": [
+            {
+                "title": "Delivering clarity on a global scale",
+                "company": "Be Lightning",
+                "image": "https://i.ibb.co/z7MY6rZ/image38.jpg",
+                "articleType": "Type1",
+                "industry": "Consumer Electronics",
+                "url": ""
+            },
+            {
+                "title": "Swipe to find your next holiday destination",
+                "company": "Tui",
+                "image": "https://i.ibb.co/9Gk4ktc/image39.jpg",
+                "articleType": "Type1",
+                "industry": "Travel & Leisure",
+                "url": "https://www.tui.co.uk/"
+            }
+        ]
+    }
+}

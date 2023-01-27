@@ -1,0 +1,15 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+html{
+    font-size: calc(10 / 375 * 100vw); // 1rem = 10px
+    @include media {
+        font-size: calc(10 / 1440 * 100vw);
+    }
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}

@@ -1,0 +1,99 @@
+@use '../../assets/styles/mixins.scss' as*;
+
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4.8rem;
+    // text-align: center;
+    @include media {
+    flex-direction: row;
+    padding-left: 4.8rem;
+    margin-bottom: 7.2rem;
+    // text-align: initial;
+    }
+}
+.contact-title {
+    @include tekoRegular;
+    margin-top: 4.8rem;
+    text-align: center;
+    @include media {
+    width: 23.2rem;
+    font-family: 'Teko', sans-serif;
+    font-size: 6rem;
+    line-height: 8.6rem;
+    color: #0E0E0E;
+    text-align: initial;
+    }
+}
+
+
+.form-control {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+        background: none;
+}
+
+.contact-form {
+    margin-top: 3.8rem;
+    margin-left: 5.7rem;
+    @include media {
+        margin-top: 7.2rem;
+        margin-left: 6.4rem;
+    }
+}
+
+.col-form-label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: $font-weight-bold;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    color: $color-regular-black;
+}
+
+.form-group {
+    margin-top: 3.8rem;
+}
+
+.submit-button {
+    width: 15.4rem;
+    height: 5.5rem;
+    background-color: #1A18F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: $font-weight-bold;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    color: $color-white;
+    text-transform: uppercase;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid black;
+  }
+
+  textarea {
+    border: none;
+  }
+
+  .top-container {
+   display: flex;
+   flex-direction: column;
+   @include media {
+       flex-direction: row;
+   }
+  }
+
+  .email {
+      margin-top: 3.8rem;
+      @include media {
+        margin-top: 0;
+        margin-left: 3.8rem;
+      }
+  }

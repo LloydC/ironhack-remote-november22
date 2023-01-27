@@ -1,0 +1,84 @@
+@use '../../../assets/styles/mixins.scss' as*;
+@import '../../../assets/styles/variables';
+
+.header-container {
+    width: 100vw;
+    // height: 713px;
+    height: 67.71%;
+    background-image: url('../../../assets/images/image34.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-desktop {
+    width: 100vw;
+    height: 85px;
+    background-color: transparent;
+    padding-left: 36px;
+    padding-right: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include tekoMenu;
+}
+
+.hamburger-desktop {
+    height: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.dash {
+    width: 21px;
+    height: 2px;
+    background-color: $color-regular-black;
+}
+
+.underliner{
+    width: 90.1%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.content {
+    width: 100%;
+    height: 54.4%;
+    display: flex;
+}
+
+.header-title-container, .cta-button-container {
+    width: 50%;
+    
+}
+
+.header-title-container {
+    height: 100%;
+    @include tekoDesktopHero;
+    text-transform: uppercase;
+    padding-left: 64px;
+}
+.cta-button-container {
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 44px;
+    margin-right: 42px;
+}
+
+.cta-button-desktop {
+    width: 169px;
+    height: 55px;
+    background-color: $color-regular-black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

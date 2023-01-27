@@ -1,0 +1,58 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
+li:hover {
+    cursor: pointer;
+}
+
+.footer-container {
+    width: 100vw;
+    height: auto;
+    background-color: $background-footer;
+    display: flex;
+    flex-direction: column;
+    padding: 54px 36px 0;
+}
+
+.top-mobile {
+    display: flex;
+}
+
+.bottom-mobile {
+    border-top: 1px solid #3E3E3E;
+    color: $text-footer-secondary;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 45px;
+}
+.footer-menu-mobile, .socialMedia-mobile {
+    width: 50vw;
+    height: auto;
+    display: flex;
+}
+.footer-menu-mobile > ul, .socialMedia-mobile > ul {
+    display: flex;
+    flex-direction: column;
+}
+.socialMedia-mobile {
+    justify-content: flex-end;
+}
+
+.list-item {
+   @include tekoNormal;
+   border: none;
+   background-color: $background-footer;
+   margin-bottom: 2rem;
+}
+
+.icon-item {
+    margin-bottom: 20px;
+}
+
+.copyright {
+    margin-top: 25px;
+    margin-bottom: 57px;
+}

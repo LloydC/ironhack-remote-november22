@@ -1,0 +1,40 @@
+@use '../../../../assets/styles/mixins.scss' as*;
+
+.type-three-article {
+    width: 37.3rem;
+    border-top: 1px solid #DDDDDD;
+    // margin-top: 3.6rem;
+    margin-left: 2rem;
+    padding-bottom: 3.6rem;
+    @include media {
+        // padding-top: 3.6rem;
+        
+    }
+}
+
+.type-three-company {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: $font-weight-bold;
+    font-size: $font3;
+    line-height: 1.7rem;
+    color: $color-regular-grey;
+    text-transform: uppercase;
+    margin-top: 3.6rem;
+    @include media {
+        
+    }
+}
+
+.type-three-title {
+    width: 36.9rem;
+    @include tekoBase;
+    // font-family: 'Teko';
+    // font-style: normal;
+    // font-weight: 400;
+    // font-size: 24px;
+    // line-height: 34px;
+    margin-top: 1.2rem;
+    @include media {
+        
+    }
+}

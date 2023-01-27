@@ -1,0 +1,41 @@
+@use '../../../../assets/styles/mixins.scss' as*;
+
+.type-two-article {
+    // width: 37.3rem;
+    margin-bottom: 3.2rem;
+    padding-top: 3.2rem;
+    // @include media {
+    //     margin: 0;
+    //     padding: 0;
+    // }
+}
+
+.type-two-image {
+    width: 33.7rem;
+    height: 28.6rem;
+
+    @include media {
+    width: 51.1rem;
+    height: 46.6rem;
+    }
+}
+
+.type-two-company {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: $font-weight-bold;
+    font-size: $font3;
+    line-height: 1.7rem;
+    margin-top: 1.6rem;
+    color: $color-regular-grey;
+    text-transform: uppercase;
+
+//     @include media {
+
+//     }
+}
+
+.type-two-title {
+    width: 33.7rem;
+    @include tekoRegular;
+    margin-top: 1.2rem;
+}

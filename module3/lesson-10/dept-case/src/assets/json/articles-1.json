@@ -1,0 +1,38 @@
+{
+    "data": {
+        "en": [
+            {
+                "title": "A Summer island in the Netherlands",
+                "company": "bol.com",
+                "image": "https://i.ibb.co/xqDBZSP/image33.jpg",
+                "articleType": "Type1",
+                "industry": "Retail",
+                "url": "https://www.bol.com/"
+            },
+            {
+                "title": "Not some average banking website",
+                "company": "kempen",
+                "image": "https://i.ibb.co/1ZMsLvc/image35.jpg",
+                "articleType": "Type1",
+                "industry": "Corporate Finance",
+                "url": "https://www.kempen.com/"
+            },
+            {
+                "title": "Beautiful design meets innovative technology",
+                "company": "Philips",
+                "image": "https://i.ibb.co/7GzHXYD/image36.jpg",
+                "articleType": "Type1",
+                "industry": "Consumer Electronics",
+                "url": "https://www.philips.com/"
+            },
+            {
+                "title": "A 100 years of Mondriaan & De Stijl",
+                "company": "Gemeentemuseum",
+                "image": "https://i.ibb.co/wp6mk7Y/image37.jpg",
+                "articleType": "Type1",
+                "industry": "Museum",
+                "url": "https://www.kunstmuseum.nl/en"
+            }
+        ]
+    }
+}

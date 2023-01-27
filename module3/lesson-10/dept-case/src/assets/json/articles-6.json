@@ -1,0 +1,30 @@
+{
+    "data": {
+        "en": [
+            {
+                "title": "Rethinking the entire online ecosystem",
+                "company": "florensis",
+                "image": "https://i.ibb.co/0MsBpNf/image40.jpg",
+                "articleType": "Type2",
+                "industry": "Plants Supplier",
+                "url": "https://www.florensis.com/en-gb"
+            },
+            {
+                "title": "Enhancing customer experience for personalised holiday planning using real time data",
+                "company": "Bultins",
+                "image": "",
+                "articleType": "Type3",
+                "industry": "Travel",
+                "url": "https://www.bultins.com/"
+            },
+            {
+                "title": "Predicting booking behaviour for holidays with smart data, voice search and machine learning",
+                "company": "Vacanseselect",
+                "image": "",
+                "articleType": "Type3",
+                "industry": "Travel",
+                "url": "https://www.vacanceselect.com/"
+            }
+        ]
+    }
+}

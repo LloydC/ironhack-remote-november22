@@ -1,0 +1,39 @@
+{
+    "data": {
+        "en": [
+            {
+                "title": "A campaign for the limited edition letter packs",
+                "company": "Chocomel",
+                "image": "https://i.ibb.co/wpjLdkx/image41.jpg",
+                "articleType": "Type1",
+                "industry": "Food",
+                "url": "https://www.chocomel.com/"
+            },
+            {
+                "title": "Live like a champion with Jerome Boateng",
+                "company": "JBL",
+                "image": "https://i.ibb.co/hZ0VtCk/image42.jpg",
+                "articleType": "Type1",
+                "industry": "Consumer Electronics",
+                "url": "https://www.jbl.com/"
+            },
+            {
+                "title": "Innovative SEO and content strategy for Zalando",
+                "company": "Zalando",
+                "image": "https://i.ibb.co/bzkm4Mc/image43.jpg",
+                "articleType": "Type1",
+                "industry": "Retail",
+                "url": "https://www.zalando.com/"
+            },
+            {
+                "title": "The search of the most influential book ever",
+                "company": "Koninklijke Bibliotheek",
+                "image": "https://i.ibb.co/qphVdyS/image44.jpg",
+                "articleType": "Type1",
+                "industry": "Library",
+                "url": "https://www.kb.nl/"
+            }
+
+        ]
+    }
+}

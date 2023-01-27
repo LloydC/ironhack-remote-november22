@@ -1,0 +1,52 @@
+@use '../../assets/styles/mixins.scss' as*;
+
+.clients-container {
+    width: 100vw;
+   background: #F0F4F4;
+    padding-top: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    @include media {
+        
+        padding-top: 7.2rem;
+    }
+}
+
+.clients-title {
+    @include tekoRegular;
+    margin-bottom: 1.8rem;
+    @include media {
+    font-size: 6rem;
+    line-height: 8.6rem;;
+    }
+}
+
+.clients-statement {
+    width: 32.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: $font-weight-regular;
+    font-size: 1.7rem;
+    line-height: 2.7rem;
+    margin: 0 auto;
+    @include media {
+        width: 58.3rem;
+    }
+
+}
+
+.logos-container {
+    width: 32.9rem;
+    margin: 0 auto;
+    margin-top: 6rem;
+    @include media {
+        width: 40rem;
+        margin-top: 5.7rem;
+    }
+}
+
+.logos-container > ul {
+    display: flex;
+    flex-direction: column;
+}
