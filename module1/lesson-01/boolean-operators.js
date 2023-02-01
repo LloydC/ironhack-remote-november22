@@ -1,4 +1,4 @@
-let likeCats = false;
+let likeCats = false;  // Alessandra commented here...
 let likeDogs = true;
 let drinkCoffee = false;
 
